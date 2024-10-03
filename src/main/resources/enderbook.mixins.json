@@ -1,0 +1,11 @@
+{
+	"required": true,
+	"package": "dev.lumelore.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+      "EnderbookMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

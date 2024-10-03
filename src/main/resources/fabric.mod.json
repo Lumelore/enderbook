@@ -1,0 +1,41 @@
+{
+	"schemaVersion": 1,
+	"id": "enderbook",
+	"version": "${version}",
+	"name": "Enderbook",
+	"description": "Store your coordinates safely in the Enderbook! Each player has their own.",
+	"authors": [
+		"Lumelore"
+	],
+	"contact": {
+		"homepage": "https://github.com/Lumelore/",
+		"sources": "https://github.com/Lumelore/"
+	},
+	"license": "GNU-GPLv3.0",
+	"icon": "assets/enderbook/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"dev.lumelore.Enderbook"
+		],
+		"client": [
+			"dev.lumelore.EnderbookClient"
+		]
+	},
+	"mixins": [
+		"enderbook.mixins.json",
+		{
+			"config": "enderbook.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.16.5",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
