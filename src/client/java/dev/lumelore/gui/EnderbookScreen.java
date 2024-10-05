@@ -12,7 +12,8 @@ import net.minecraft.client.gui.Drawable;
 import net.minecraft.client.gui.Element;
 import net.minecraft.client.gui.Selectable;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.gui.widget.*;
+import net.minecraft.client.gui.widget.ButtonWidget;
+import net.minecraft.client.gui.widget.TexturedButtonWidget;
 import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
@@ -91,10 +92,10 @@ public class EnderbookScreen extends Screen {
         createButton = CRUDButtons.createCreateButton(rightEdge + 10, topEdge, btn -> {});
 
         viewButton = CRUDButtons.createReadButton(rightEdge + 10, createButton.getY() + 25, btn -> MinecraftClient.getInstance()
-                .setScreen(new EnderbookCUDScreen(Text.of("Enderbook View & Edit Screen"), this)));
+                .setScreen(new EnderbookCRUDScreen(this)));
 
         editButton = CRUDButtons.createUpdateButton(rightEdge + 10, viewButton.getY() + 25, btn -> MinecraftClient.getInstance()
-                .setScreen(new EnderbookCUDScreen(Text.of("Enderbook View & Edit Screen"), this)));
+                .setScreen(new EnderbookCRUDScreen(this)));
 
 
 
@@ -230,6 +231,14 @@ public class EnderbookScreen extends Screen {
     private void updateCUDButtonWidgets() {
         editButton.active = (selectedEntry != null);
         viewButton.active = (selectedEntry != null);
+    }
+
+    public CoordinateEntry getSelectedEntry() {
+        return selectedEntry;
+    }
+
+    public void setSelectedEntry(CoordinateEntry entry) {
+        selectedEntry = entry;
     }
 
     /* ==================== *
